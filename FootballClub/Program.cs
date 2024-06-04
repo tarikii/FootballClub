@@ -12,7 +12,7 @@ namespace FootballClub
         {
             Program main = new Program();
             Club club = new Club();
-            Match match;
+            Match match = new Match();
             int? option = 0;
 
             while (true)
@@ -26,6 +26,7 @@ namespace FootballClub
                 else if (option == 3)
                 {
                     match = club.CreateMatch();
+                    match.ScoreGoal();
                     Console.WriteLine(match);
                 }
                 else
@@ -41,6 +42,7 @@ namespace FootballClub
             Console.WriteLine("WELCOME TO REGISTER TEAM FOUNDATION!");
             Console.WriteLine("\n1. Register a team");
             Console.WriteLine("2. List team");
+            Console.WriteLine("3. Create Match");
             Console.WriteLine("0. Exit");
             Console.Write("Pick an option: ");
 
