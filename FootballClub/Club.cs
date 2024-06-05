@@ -8,7 +8,7 @@ namespace FootballClub
 {
     public class Club
     {
-        
+
         public List<Team> Teams { get; }
 
         public Club()
@@ -69,66 +69,57 @@ namespace FootballClub
             return player;
         }
 
-        public class FootballClub
+        public Match CreateMatch()
         {
-            public List<Team> Teams { get; set; }
+            Team team1 = null;
+            Team team2 = null;
+            string teamName;
 
-            public FootballClub()
+            Console.Write("What's the name of the first team: ");
+            teamName = Console.ReadLine();
+            bool team1Found = false;
+
+            foreach (Team team in Teams)
             {
-                Teams = new List<Team>();
+                if (team.TeamName == teamName)
+                {
+                    team1 = team;
+                    team1Found = true;
+                    break;
+                }
             }
 
-            public Match CreateMatch()
+            if (!team1Found)
             {
-                Team team1 = null;
-                Team team2 = null;
-                string teamName;
-
-                Console.Write("What's the name of the first team: ");
-                teamName = Console.ReadLine();
-                bool team1Found = false;
-
-                foreach (Team team in Teams)
-                {
-                    if (team.TeamName == teamName)
-                    {
-                        team1 = team;
-                        team1Found = true;
-                        break;
-                    }
-                }
-
-                if (!team1Found)
-                {
-                    Console.WriteLine("This team is not registered in the club!");
-                    return null;
-                }
-
-                Console.Write("What's the name of the second team: ");
-                teamName = Console.ReadLine();
-                bool team2Found = false;
-
-                foreach (Team team in Teams)
-                {
-                    if (team.TeamName == teamName)
-                    {
-                        team2 = team;
-                        team2Found = true;
-                        break;
-                    }
-                }
-
-                if (!team2Found)
-                {
-                    Console.WriteLine("This team is not registered in the club!");
-                    return null;
-                }
-
-                Match match = new Match(team1, team2);
-                return match;
+                Console.WriteLine("This team is not registered in the club!");
+                return null;
             }
 
-            public override string ToString()
+            Console.Write("What's the name of the second team: ");
+            teamName = Console.ReadLine();
+            bool team2Found = false;
+
+            foreach (Team team in Teams)
+            {
+                if (team.TeamName == teamName)
+                {
+                    team2 = team;
+                    team2Found = true;
+                    break;
+                }
+            }
+
+            if (!team2Found)
+            {
+                Console.WriteLine("This team is not registered in the club!");
+                return null;
+            }
+
+            Match match = new Match(team1, team2);
+            return match;
+        }
+
+        public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
 
