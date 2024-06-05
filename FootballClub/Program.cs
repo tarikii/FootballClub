@@ -12,6 +12,7 @@ namespace FootballClub
         {
             Program main = new Program();
             Club club = new Club();
+            Match match;
             int? option = 0;
 
             while (true)
@@ -22,6 +23,11 @@ namespace FootballClub
                     club.RegisterTeam();
                 else if (option == 2)
                     Console.WriteLine(club);
+                else if (option == 3)
+                {
+                    match = club.CreateMatch();
+                    Console.WriteLine(match);
+                }
                 else
                     return;
             }
