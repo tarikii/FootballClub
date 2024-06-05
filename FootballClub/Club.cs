@@ -69,65 +69,6 @@ namespace FootballClub
             return player;
         }
 
-        public class FootballClub
-        {
-            public List<Team> Teams { get; set; }
-
-            public FootballClub()
-            {
-                Teams = new List<Team>();
-            }
-
-            public Match CreateMatch()
-            {
-                Team team1 = null;
-                Team team2 = null;
-                string teamName;
-
-                Console.Write("What's the name of the first team: ");
-                teamName = Console.ReadLine();
-                bool team1Found = false;
-
-                foreach (Team team in Teams)
-                {
-                    if (team.TeamName == teamName)
-                    {
-                        team1 = team;
-                        team1Found = true;
-                        break;
-                    }
-                }
-
-                if (!team1Found)
-                {
-                    Console.WriteLine("This team is not registered in the club!");
-                    return null;
-                }
-
-                Console.Write("What's the name of the second team: ");
-                teamName = Console.ReadLine();
-                bool team2Found = false;
-
-                foreach (Team team in Teams)
-                {
-                    if (team.TeamName == teamName)
-                    {
-                        team2 = team;
-                        team2Found = true;
-                        break;
-                    }
-                }
-
-                if (!team2Found)
-                {
-                    Console.WriteLine("This team is not registered in the club!");
-                    return null;
-                }
-
-                Match match = new Match(team1, team2);
-                return match;
-            }
-
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
