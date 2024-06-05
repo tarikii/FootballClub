@@ -26,6 +26,7 @@ namespace FootballClub
                 else if (option == 3)
                 {
                     match = club.CreateMatch();
+                    match.ScoreGoal();
                     Console.WriteLine(match);
                 }
                 else
