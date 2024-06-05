@@ -12,7 +12,7 @@ namespace FootballClub
         {
             Program main = new Program();
             Club club = new Club();
-            Match match = new Match();
+            Match match;
             int? option = 0;
 
             while (true)
