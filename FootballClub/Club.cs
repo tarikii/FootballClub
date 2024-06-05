@@ -69,6 +69,50 @@ namespace FootballClub
             return player;
         }
 
+        public Match CreateMatch()
+        {
+            Team team1 = new Team();
+            Team team2 = new Team();
+            string teamName;
+            bool teamFound = false;
+
+            Console.Write("What's the name of the first team: ");
+            teamName = Console.ReadLine();
+
+            foreach (Team team in Teams)
+            {
+                if (team.TeamName == teamName)
+                {
+                    team1 = team;
+                    teamFound = true;
+                    break;
+                }
+            }
+
+            if (!teamFound)
+                Console.WriteLine("This team is not registered in the club!");
+
+            Console.Write("What's the name of the second team: ");
+            teamName = Console.ReadLine();
+
+            foreach (Team team in Teams)
+            {
+                if (team.TeamName == teamName)
+                {
+                    team2 = team;
+                    teamFound = true;
+                    break;
+                }      
+            }
+
+            if (!teamFound)
+                Console.WriteLine("This team is not registered in the club!");
+
+            Match match = new Match(team1, team2);
+
+            return match;
+        }
+
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
